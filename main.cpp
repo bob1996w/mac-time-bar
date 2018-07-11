@@ -15,7 +15,7 @@
 #include <vector>
 using namespace std;
 
-string mono_format = "| font=\'DejaVu Sans Mono for Powerline\' trim=false";
+string mono_format = "| font=\'DejaVu Sans Mono for Powerline\' trim=false color=white";
 
 string exec(const char* cmd) {
     array<char, 128> buffer;
