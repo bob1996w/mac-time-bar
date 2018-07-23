@@ -177,5 +177,18 @@ int main(int argc, const char* argv[]) {
     for (int i = 0; i < calendar.size(); i++) {
         cout << calendar[i] << endl;
     }
+
+    // next month
+    int nextMonth_year = stoi(exec("date -v+1m +%Y")); // year of next month
+    int nextMonth_month = stoi(exec("date -v+1m +%m")); // month of next month
+    int nextMonth_firstDayOfWeek = stoi(exec("date -v1d -v+1m +%u")); // get DOW of first day of next month
+    int nextMonth_totalDaysOfMonth = stoi(exec("date -v1d -v+2m -v-1d +%d"));// get how musch day next month has
+
+    cout << setAttr("white", "");
+    cout << nextMonth_year << "/" << nextMonth_month << mono_format << endl;
+    vector<string> nextMonthCalendar = createCal(nextMonth_firstDayOfWeek, nextMonth_totalDaysOfMonth, 0, mono_format);
+    for (int i = 0; i < nextMonthCalendar.size(); i++) {
+        cout << nextMonthCalendar[i] << endl;
+    }
     return 0;
 }
